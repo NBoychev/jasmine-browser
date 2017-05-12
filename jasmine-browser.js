@@ -20,7 +20,7 @@
 
 	Test.prototype.run = function(next) {
 		var self = this;
-		console.log(">> " + tests.indexOf(self) + ": "+ this.name);
+		/*allowFunc*/ console.log(">> " + tests.indexOf(self) + ": "+ this.name);
 		currentTest = this;
 		if (hasParas(this.callback)) {
 			this.callback(function() {
@@ -41,19 +41,19 @@
 
 	Expectation.prototype.toBe = function(value) {
 		if (this.value === value) {
-			console.info("   [passed] Both values are", value);
+			/*allowFunc*/ console.info("   [passed] Both values are", value);
 		} else {
 			this.test.failed = true;
-			console.info("   [failed] Expected", this.value, "to be", value);
+			/*allowFunc*/ console.info("   [failed] Expected", this.value, "to be", value);
 		} 
 	};
 
 	Expectation.prototype.toEqual = function(value) {
 		if (equals(this.value, value)) {
-			console.info("   [passed] Both values are", value);
+			/*allowFunc*/ console.info("   [passed] Both values are", value);
 		} else {
 			this.test.failed = true;
-			console.info("   [failed] Expected", this.value, "to equal", value);
+			/*allowFunc*/ console.info("   [failed] Expected", this.value, "to equal", value);
 		}
 	};
 
@@ -107,7 +107,7 @@
 					});
 				}
 
-				console.info("   In total: " + passed + " passed,", failed + " failed.");
+				/*allowFunc*/ console.info("   In total: " + passed + " passed,", failed + " failed.");
 			} else {
 				tests[index++].run(next);
 			}
